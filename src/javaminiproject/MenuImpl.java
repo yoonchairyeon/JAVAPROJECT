@@ -49,7 +49,7 @@ public class MenuImpl extends Thread implements Menu{
 				try {
 					sleep(200);
 				} catch (Exception e) {
-					
+					System.out.println(e.toString());
 				}
 				while(cnt<1) {
 					String[] drink = {""
@@ -66,7 +66,7 @@ public class MenuImpl extends Thread implements Menu{
 						sleep(150);
 					} cnt++;
 					sleep(800);
-					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*10000) + "입니다!");
+					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*1000) + "입니다!");
 					System.out.println("======================================");
 				}
 				
@@ -74,7 +74,7 @@ public class MenuImpl extends Thread implements Menu{
 				try {
 					sleep(200);
 				} catch (Exception e) {
-					
+					System.out.println(e.toString());
 				}
 				while(cnt<1) {
 					String[] drink = {"\n"
@@ -93,7 +93,7 @@ public class MenuImpl extends Thread implements Menu{
 						sleep(150);
 					} cnt++;
 					sleep(800);
-					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*15000) + "입니다!");
+					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*1900) + "입니다!");
 					System.out.println("======================================");
 				}
 			
@@ -101,7 +101,7 @@ public class MenuImpl extends Thread implements Menu{
 				try {
 					sleep(200);
 				} catch (Exception e) {
-					
+					System.out.println(e.toString());
 				}
 				while(cnt<1) {
 					String[] drink = {""
@@ -119,14 +119,14 @@ public class MenuImpl extends Thread implements Menu{
 						sleep(150);
 					} cnt++;
 					sleep(300);
-					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*15000) + "입니다!");
+					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*2000) + "입니다!");
 					System.out.println("======================================");
 				}
 			case 4 :
 				try {
 					sleep(200);
 				} catch (Exception e) {
-					
+					System.out.println(e.toString());
 				}
 				while(cnt<1) {
 					String[] drink = {""
@@ -151,7 +151,7 @@ public class MenuImpl extends Thread implements Menu{
 				try {
 					sleep(200);
 				} catch (Exception e) {
-					
+					System.out.println(e.toString());
 				}
 				while(cnt<1) {
 					String[] drink = {""
@@ -169,7 +169,7 @@ public class MenuImpl extends Thread implements Menu{
 						sleep(150);
 					} cnt++;
 					sleep(600);
-					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*6000) + "입니다!");
+					System.out.println("당신이 지불해야 금액은 " + (vo.getCount()*4000) + "입니다!");
 					System.out.println("======================================");
 				}
 			default :
@@ -185,33 +185,107 @@ public class MenuImpl extends Thread implements Menu{
 
 	//할인권 이용시 천원 할인해주기 
 	@Override
-	public void halin() {
+	public void halin() throws Exception {
 		
 		MenuVO vo = new MenuVO();
 		
-		String[] drink = {"생수", "콜라", "사이다", "맥주", "막걸리"};
+		String[] drink = {"\n"
+				+ " _    _   ___   _____  _____ ______ \n"
+				+ "| |  | | / _ \\ |_   _||  ___|| ___ \\\n"
+				+ "| |  | |/ /_\\ \\  | |  | |__  | |_/ /\n"
+				+ "| |/\\| ||  _  |  | |  |  __| |    / \n"
+				+ "\\  /\\  /| | | |  | |  | |___ | |\\ \\ \n"
+				+ " \\/  \\/ \\_| |_/  \\_/  \\____/ \\_| \\_|\n"
+				+ "                                    \n"
+				+ "                                    \n"
+				+ "", "\n"
+				+ " _____  _____  _   __ _____ \n"
+				+ "/  __ \\|  _  || | / /|  ___|\n"
+				+ "| /  \\/| | | || |/ / | |__  \n"
+				+ "| |    | | | ||    \\ |  __| \n"
+				+ "| \\__/\\\\ \\_/ /| |\\  \\| |___ \n"
+				+ " \\____/ \\___/ \\_| \\_/\\____/ \n"
+				+ "                            \n"
+				+ "                            \n"
+				+ "", 
+				"\n"
+				+ " _____ ______ ______  _____  _____  _____ \n"
+				+ "/  ___|| ___ \\| ___ \\|_   _||_   _||  ___|\n"
+				+ "\\ `--. | |_/ /| |_/ /  | |    | |  | |__  \n"
+				+ " `--. \\|  __/ |    /   | |    | |  |  __| \n"
+				+ "/\\__/ /| |    | |\\ \\  _| |_   | |  | |___ \n"
+				+ "\\____/ \\_|    \\_| \\_| \\___/   \\_/  \\____/ \n"
+				+ "                                          \n"
+				+ "                                          \n"
+				+ "", 
+				"\n"
+				+ "______  _____  _____ ______ \n"
+				+ "| ___ \\|  ___||  ___|| ___ \\\n"
+				+ "| |_/ /| |__  | |__  | |_/ /\n"
+				+ "| ___ \\|  __| |  __| |    / \n"
+				+ "| |_/ /| |___ | |___ | |\\ \\ \n"
+				+ "\\____/ \\____/ \\____/ \\_| \\_|\n"
+				+ "                            \n"
+				+ "                            \n"
+				+ "",
+				"\n"
+				+ "___  ___  ___   _   __ _____  _____  _____  _      _      _____ \n"
+				+ "|  \\/  | / _ \\ | | / /|  __ \\|  ___||  _  || |    | |    |_   _|\n"
+				+ "| .  . |/ /_\\ \\| |/ / | |  \\/| |__  | | | || |    | |      | |  \n"
+				+ "| |\\/| ||  _  ||    \\ | | __ |  __| | | | || |    | |      | |  \n"
+				+ "| |  | || | | || |\\  \\| |_\\ \\| |___ \\ \\_/ /| |____| |____ _| |_ \n"
+				+ "\\_|  |_/\\_| |_/\\_| \\_/ \\____/\\____/  \\___/ \\_____/\\_____/ \\___/ \n"
+				+ "                                                                \n"
+				+ "                                                                \n"
+				+ ""};
 		int rand = drink.length;
 		int num[] = {0};
-		System.out.println("할인권을 사용하시겠습니까? [Yes/No] "); //YES,NO
-		vo.setCoupon(sc.next());
-	
-		if(vo.getCoupon().equals("Yes")) {
-			num[0] = rd.nextInt(rand);
-			for(int su : num)
-			System.out.println(drink[su]);
-		} else if(vo.getCoupon().equals("No")) {
-			//음료를 구매하실?
-		}else {
-			System.out.println("다시 입력해주세요!");
-		}
+		do {
+			System.out.print("할인권을 사용하시겠습니까? [Yes/No] "); //YES,NO
+			vo.setCoupon(sc.next());
+		
+			if(vo.getCoupon().equals("Yes")) {
+				sleep(400);
+				num[0] = rd.nextInt(rand);
+				try {
+					sleep(500);
+					System.out.println(".　　　우\n"
+							+ "　　 아\n"
+							+ "　　　아\n"
+							+ "　　　　아\n"
+							+ "　　　　 ㅇ\n"
+							+ "　　　　⋌\n"
+							+ "　　　 ㅇ\n"
+							+ "　　　⋌\n"
+							+ "　　　.\n"
+							+ "　　　 .\n"
+							+ "　 ヽ＼　 /／\n"
+							+ "　　　 ,､,､　ﾟ｡\n"
+							+ "　 ﾟ　(ﾟﾛﾟ)っ\n"
+							+ "　　　(っﾉ\n"
+							+ "　　　 `Ｊ\n"
+							+ "");
+					for(int su : num)
+						System.out.println(drink[su]);
+					System.out.println("음료 나왔습니다!");
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+			} else if(vo.getCoupon().equals("No")) {
+				System.out.println("음료 구매 창으로 넘어가겠습니다.");
+				try {
+					sleep(500);
+					inoutput();
+				} catch (Exception e) {
+					System.out.println(e.toString());
+				}
+			}else {
+				System.out.println("다시 입력해주세요!");
+			}
+		}while(!vo.getCoupon().equals("Yes"));
+		
 		
 	}
-
 }
 
-/*3. 메뉴(매점) -> 배열 / 스레드 (준비중입니다... )    윤
-1) 메뉴 준비
- 생수, 콜라, 사이다, 맥주,막걸리
-2) 할인권 -> 음료(랜덤)
-1번에서 넘어온 사람만 랜덤으로
-*/

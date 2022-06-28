@@ -1,9 +1,13 @@
 package javaminiproject;
 
-public class SingMain {
+import java.util.Scanner;
+
+public class SingMain extends Thread{
 
 	public static void main(String[] args) {
-		Menu ob = new MenuImpl();
+		Scanner sc = new Scanner(System.in);
+		int ch;
+		
 		System.out.println("\n"
 				+ " _    _  _____  _      _____  _____ ___  ___ _____   _____  _____ \n"
 				+ "| |  | ||  ___|| |    /  __ \\|  _  ||  \\/  ||  ___| |_   _||  _  |\n"
@@ -24,6 +28,62 @@ public class SingMain {
 				+ "                                                                                                            \n"
 				+ "                                                                                                            \n"
 				+ "");
+		while(true) {
+			try {
+				do {
+					System.out.println(
+							" ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n"
+							+ "|　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿      ＿＿＿＿＿＿　     |\n"
+							+ "| 　　　｜1.회원가입|　 　｜ 2.좌석　｜ 　 | 3.매점 |　 　  | 4.종료 |      |\n"
+							+ "|　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣　　　 　￣￣￣￣￣￣      |\n"
+							+ "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣	\n"
+							+ "");
+					System.out.print("메뉴를 선택해주세요! ");
+					//System.out.println("1.회원가입 2.좌석선택 3.매점이용 4.종료");
+					ch = sc.nextInt();
+					
+				}while(ch<1);
+				switch(ch) {
+				case 1: MemberMain.main(args); break;
+				case 2: SeatMain.main(args); break;
+				case 3: MenuMain.main(args); break;
+				case 4: 
+					System.out.println("코인노래방 서비스를 종료합니다.");
+					int cnt = 0;
+					try {
+						sleep(100);
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					while(cnt<1) {
+						String[] bye = {"∧,,∧"
+								, "( 'ω' )つ 　다음에"
+								, "（m9 ＼ 　　   또 "
+								, "　 ＼　 ＼ 　　만나요!"
+								, "　 　 ) ) ＼"
+								, "　 ／／ ＼ ＼"
+								, "　 (＿） 　 (＿)"
+								, ""};
+						for(int i =0; i<bye.length; i++) {
+							System.out.println(bye[i]);
+							sleep(150);
+						} cnt++;
+						sleep(800);
+					}
+					break;
+				default:
+					System.out.println("다시 골라주세요!");
+				}
+				
+				
+			} catch (Exception e) {
+				System.out.println(e.toString());
+			}
+			
+			break;
+			
+		}
+		
 		
 	}
 
