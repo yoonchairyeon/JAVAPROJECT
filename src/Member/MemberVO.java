@@ -1,4 +1,4 @@
-package javaminiproject;
+package Member;
 
 public class MemberVO { 
    private String id, pw, name, phone;

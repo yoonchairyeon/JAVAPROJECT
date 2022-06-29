@@ -1,4 +1,4 @@
-package javaminiproject;
+package Menu;
 
 public class MenuVO {
 

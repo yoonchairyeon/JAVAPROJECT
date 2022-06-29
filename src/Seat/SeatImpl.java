@@ -1,10 +1,12 @@
-package javaminiproject;
+package Seat;
 
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.Vector;
 
-public abstract class SeatImpl extends Thread implements Seat, Runnable {
+import javaminiproject.SingMain;
+
+public class SeatImpl extends Thread implements Seat, Runnable {
 
    private Vector<String> vs = new Vector<String>();
    private Vector<String> vs2 = new Vector<String>();
@@ -20,14 +22,6 @@ public abstract class SeatImpl extends Thread implements Seat, Runnable {
    String nsUser;
    int ch;
    int times;
-
-   @Override
-   public int seatstart() {
-     
-      
-
-      return ch = sc.nextInt();
-   }
 
    @Override
    public int leftseat() {
@@ -281,5 +275,73 @@ public abstract class SeatImpl extends Thread implements Seat, Runnable {
          System.out.println("좌석 선택 오류!! 다시 선택해주세요.");
       }
    }
+
+@Override
+public void smain() {
+	 Seat st = new SeatImpl();
+
+     st.s_section(); // main 최상단
+     st.ns_seciont(); // main 최상단
+     
+     do {
+   	  try {
+   		  System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+   		  System.out.println("               좌석 선택을 위해 ");
+   		  System.out.println("        원하시는 메뉴의 번호를 입력해주세요.");
+   		  System.out.println("1. 좌석 선택 2. 좌석 변경 3. 좌석 사용종료 4. 첫 화면 ");
+   		  System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+ 		      System.out.print("▶선택?  ");
+  		      ch =sc.nextInt();
+   		 
+ 	         switch (ch) {
+ 	         case 1:
+ 	            int smo = st.leftseat();
+
+ 	            switch (smo) {
+ 	            case 1:
+ 	               st.s_choice();
+ 	               break;
+ 	            case 2:
+ 	               st.ns_choice();
+ 	               break;
+ 	            case 3:
+ 	               st.leftseat();
+ 	               break;
+ 	            }
+ 	            break;
+
+ 	         case 2:
+ 	            smo = st.leftseat();
+
+ 	            switch (smo) {
+ 	            case 1:
+ 	               st.s_change();
+ 	               break;
+ 	            case 2:
+ 	               st.ns_change();
+ 	               break;
+ 	            }
+ 	            break;
+ 	         case 3:
+ 	            smo = st.leftseat();
+
+ 	            switch (smo) {
+ 	            case 1:
+ 	               st.s_endUse();
+ 	               break;
+ 	            case 2:
+ 	               st.ns_endUse();
+ 	               break;
+ 	            }
+ 	            break;
+ 	         case 4:
+ 	        	SingMain.main(null);
+ 	        	break;
+ 	         }
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+     }while(ch !=4);
+}
 
 }

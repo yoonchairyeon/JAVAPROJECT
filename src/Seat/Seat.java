@@ -1,8 +1,7 @@
-package javaminiproject;
+package Seat;
 
 public interface Seat {
-   
-   public int seatstart();
+	public void smain();
    public int leftseat();
    public void run();
    public void s_section();
@@ -13,5 +12,6 @@ public interface Seat {
    public void ns_change();
    public void s_endUse();
    public void ns_endUse();
+  
    
 }

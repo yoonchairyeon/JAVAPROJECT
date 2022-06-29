@@ -1,9 +1,11 @@
-package javaminiproject;
+package Menu;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import javaminiproject.SingMain;
 
 public class MenuImpl extends Thread implements Menu{
 
@@ -182,8 +184,8 @@ public class MenuImpl extends Thread implements Menu{
 				break;
 		}
 }
-
 	//할인권 이용시 천원 할인해주기 
+	
 	@Override
 	public void halin() throws Exception {
 		
@@ -265,8 +267,10 @@ public class MenuImpl extends Thread implements Menu{
 							+ "　　　(っﾉ\n"
 							+ "　　　 `Ｊ\n"
 							+ "");
+					sleep(500);
 					for(int su : num)
 						System.out.println(drink[su]);
+					sleep(300);
 					System.out.println("음료 나왔습니다!");
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -275,7 +279,7 @@ public class MenuImpl extends Thread implements Menu{
 			} else if(vo.getCoupon().equals("No")) {
 				System.out.println("음료 구매 창으로 넘어가겠습니다.");
 				try {
-					sleep(500);
+					sleep(800);
 					inoutput();
 				} catch (Exception e) {
 					System.out.println(e.toString());
@@ -286,6 +290,42 @@ public class MenuImpl extends Thread implements Menu{
 		}while(!vo.getCoupon().equals("Yes"));
 		
 		
+	}
+
+	@Override
+	public void mmmain() {
+		Menu ob = new MenuImpl();
+		int ch = 0;
+		do {
+			try {
+				
+					System.out.println(
+							" ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n"
+							+ "|     　＿＿＿＿＿＿　　　   　＿＿＿＿＿＿＿＿＿　       　＿＿＿＿＿＿　　   　|\n"
+							+ "| 　 　　｜1.구매  |　      ｜ 2.할인권 구매　｜      　｜3.첫 화면 |　　    |\n"
+							+ "|　   　　￣￣￣￣￣￣　　　　   ￣￣￣￣￣￣￣￣￣　　　    　￣￣￣￣￣￣　     |\n"
+							+ "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\n"
+							+ "");
+					System.out.print("메뉴를 선택해주세요! ");
+					ch =sc.nextInt();
+					
+					System.out.println("======================================");
+				
+				
+				switch(ch) {
+				case 1: ob.inoutput(); break;
+				case 2: ob.halin(); break;
+				case 3: 
+					SingMain.main(null);
+					break;
+				default:
+					System.out.println("다시 골라주세요!");
+				}
+			} catch (Exception e) {
+				
+			}
+			
+		}while(ch != 3);
 	}
 }
 
