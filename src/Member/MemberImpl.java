@@ -1,35 +1,27 @@
 package Member;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import Menu.MenuImpl;
 import javaminiproject.SingMain;
 
 public class MemberImpl extends Thread implements Member{
    
-      //private List<MemberVO> lists = null;
-      //MemberVO vo = null;
-   public List<MemberVO> lists = new ArrayList<>();
+	  private List<MemberVO> lists = new ArrayList<>();
       Scanner sc = new Scanner(System.in);   
-      
-      public MemberImpl() {
-         
-      }
-      
+      MemberVO vo;
       @Override
       public void input() { //회원가입
-         MemberVO vo = new MemberVO(); 
-         
-         //if(lists == null) {
-         //   lists = new ArrayList<>();
-         //}
+         MemberVO vo = new MemberVO();
          
          System.out.print("\n아이디: ");
          String id = sc.next();
          Iterator<MemberVO> it = lists.iterator();
-         //vo.setId(sc.next());
          while(it.hasNext()) {
                MemberVO vo1 = it.next();
                if(id.equals(vo1.getId())) {
@@ -40,11 +32,9 @@ public class MemberImpl extends Thread implements Member{
             
             System.out.print("아이디: ");
             vo.setId(sc.next());
-            //id = vo.getId();
    
             System.out.print("비밀번호: ");
             vo.setPw(sc.next());
-            //pw = vo.getPw();
    
             System.out.print("이름: ");
             vo.setName(sc.next());
@@ -70,7 +60,7 @@ public class MemberImpl extends Thread implements Member{
          while(it.hasNext()) {
          
             MemberVO vo1 = it.next();
-            if(id.equals(vo1.getId())) {
+            if((id.equals(vo1.getId())) && (pw.equals(vo1.getPw()))) {
                System.out.println("▶ 회원입니다.");
                break;
             }
@@ -152,13 +142,14 @@ public class MemberImpl extends Thread implements Member{
                System.out.println("▶ 관리자 페이지 종료");
                return;
             }   
-            //break;
          }
       }
 
 	@Override
 	public void memmenu() {
 		Member ob = new MemberImpl();
+		MenuImpl mm1 = new MenuImpl();
+		SingMain si = new SingMain();
 		 while(true) { 
 	    	  try {
 	  	           System.out.print("-----------------------------------\n");
@@ -168,23 +159,43 @@ public class MemberImpl extends Thread implements Member{
 	  	           int ch = sc.nextInt();
 	  	           
 	  	         switch(ch) {
-	  	            case 1: ob.input(); break; //회원가입, 로그인
+	  	            case 1: ob.input(); break;
 	  	            case 2:
 	  	               ob.login(); break; //관리자
 	  	            case 3:
-	  	               ob.update(); break; //시간 충전
+	  	               ob.update();
+	  	               
+	  	               break; //시간 충전
 	  	            case 4:
-	  	               ob.manager(); break; //관리자
+	  	               ob.manager(); 
+	  	             FileOutputStream fos = new FileOutputStream("/Users/yoonchairyeon/doc/sing.txt");	
+	  		  	     ObjectOutputStream oos = new ObjectOutputStream(fos);
+	  		  	     Iterator<MemberVO> it = lists.iterator();
+	  		  	     while(it.hasNext()) {
+	  		  		 MemberVO vo1 = it.next();
+	  		  	       try {
+	  						while(true) {
+	  							oos.writeObject(vo1);
+	  							if(vo1==null)
+	  								break;
+	  						}
+	  					} catch (Exception e) {
+	  					}
+	  		  	   }
+	  		  	       System.out.println("파일 저장 성공!!");
+	  					oos.close();
+	  					fos.close();
+	  	               break; //관리자
 	  	            case 5:
-	  	            	//main 돌아가기 !
-	  	            	
+	  	            	mm1.mmmain();
 	  					break;
+	  	            
+	  	            	
 	  	            default:
-	  	               System.out.println("충전을 종료합니다.");
-	  	               SingMain si = new SingMain();
-	  	               si.main(null);
-	  	   
+	  	            	System.out.println("충전을 종료합니다.");
+	  	            	 si.main(null);
 	  	         }   
+	  	         
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

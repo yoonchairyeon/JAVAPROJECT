@@ -5,18 +5,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import Member.MemberImpl;
 import javaminiproject.SingMain;
 
 public class MenuImpl extends Thread implements Menu{
-
-	private List<MenuVO> lists = new ArrayList<>();
+	public List<MenuVO> lists = new ArrayList<>();
+	MemberImpl mi = new MemberImpl();
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	@Override
 	public void inoutput() throws Exception {
 		
 		MenuVO vo = new MenuVO();
-		
+		 
 		System.out.println(""
 				+ "___  ___ _____  _   _  _   _ \n"
 				+ "|  \\/  ||  ___|| \\ | || | | |\n"
@@ -29,6 +30,8 @@ public class MenuImpl extends Thread implements Menu{
 				+ "");
 		
 		do {
+			mi.print();
+			mi.login();
 			System.out.println("1.생수 : 1,000원 \n"
 					+ "2.콜라 : 1,900원\n"
 					+ "3.사이다 : 2,000원\n"
