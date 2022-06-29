@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MemberMain {
 
-   public static void main(String[] args) {
+   public static void main(String[] args) throws Exception {
       
       Scanner sc = new Scanner(System.in);
       
@@ -30,10 +30,13 @@ public class MemberMain {
             case 4:
                ob.manager(); break; //관리자
             case 5:
-            	ob.coupon(); break;
+            	MenuMain mm = new MenuMain();
+				mm.start();	  
+				break;
             default:
                System.out.println("충전을 종료합니다.");
-               System.exit(0);
+               SingMain si = new SingMain();
+       			si.start();	
    
          }   
             

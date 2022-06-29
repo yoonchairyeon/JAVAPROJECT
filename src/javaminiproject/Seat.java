@@ -14,5 +14,4 @@ public interface Seat {
    public void s_endUse();
    public void ns_endUse();
    
-   
 }

@@ -3,13 +3,14 @@ package javaminiproject;
 import java.util.Scanner;
 
 public class MenuMain extends Thread{
-	
-	public static void main(String[] args) throws Exception {
+	private int ch;
+	public MenuMain(){
 		
+	}
+	@Override
+	public void run() {
 		Scanner sc = new Scanner(System.in);
 		Menu ob = new MenuImpl();
-		
-		int ch;
 		
 		while(true) {
 			try {
@@ -30,7 +31,10 @@ public class MenuMain extends Thread{
 				switch(ch) {
 				case 1: ob.inoutput(); break;
 				case 2: ob.halin(); break;
-				case 3: SingMain.main(args);
+				case 3: 
+					//SingMain si = new SingMain();
+					SingMain.main(null);
+					break;
 				default:
 					System.out.println("다시 골라주세요!");
 				}
@@ -39,7 +43,11 @@ public class MenuMain extends Thread{
 			}
 			
 		}
-
+	}
+	public static void main(String[] args) throws Exception {
+		//Menu ob = new MenuImpl();
+		MenuMain mm = new MenuMain();
+		mm.start();		
 	}
 
 	

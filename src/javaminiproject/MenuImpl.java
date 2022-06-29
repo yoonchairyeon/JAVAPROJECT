@@ -34,14 +34,14 @@ public class MenuImpl extends Thread implements Menu{
 					+ "5.막걸리 : 4,000원 ");
 			System.out.println("======================================");
 
-			System.out.print("메뉴를 선택해주세요 : ");
+			System.out.print("메뉴를 선택해주세요 \n▶ ");
 			vo.setMenu(sc.nextInt());
 			if(vo.getMenu() >=6) {
-				System.out.println("다시 입력해주세요!");
+				System.out.println("다시 입력해주세요! \n▶ ");
 			}
 		}while(vo.getMenu()>=6);
 		
-		System.out.print("주문할 갯수를 적어주세요 : ");
+		System.out.print("주문할 갯수를 적어주세요 \n▶  ");
 		vo.setCount(sc.nextInt());
 		int cnt = 0;
 		switch(vo.getMenu()) {
@@ -241,7 +241,7 @@ public class MenuImpl extends Thread implements Menu{
 		int rand = drink.length;
 		int num[] = {0};
 		do {
-			System.out.print("할인권을 사용하시겠습니까? [Yes/No] "); //YES,NO
+			System.out.print("할인권을 사용하시겠습니까? \n▶ [Yes/No] "); //YES,NO
 			vo.setCoupon(sc.next());
 		
 			if(vo.getCoupon().equals("Yes")) {

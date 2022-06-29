@@ -3,11 +3,49 @@ package javaminiproject;
 import java.util.Scanner;
 
 public class SingMain extends Thread{
-
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int ch;
+	public SingMain() {
 		
+	}
+	@Override
+	public void run() {
+		System.out.println("코인노래방 서비스를 종료합니다.");
+		int cnt = 0;
+		try {
+			sleep(100);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		while(cnt<1) {
+			String[] bye = {"∧,,∧"
+					, "( 'ω' )つ 　다음에"
+					, "（m9 ＼ 　　   또 "
+					, "　 ＼　 ＼ 　　만나요!"
+					, "　 　 ) ) ＼"
+					, "　 ／／ ＼ ＼"
+					, "　 (＿） 　 (＿)"
+					, ""};
+			for(int i =0; i<bye.length; i++) {
+				System.out.println(bye[i]);
+				try {
+					sleep(150);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} cnt++;
+			try {
+				sleep(800);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		SingMain si = new SingMain();
+		Scanner sc = new Scanner(System.in);
 		System.out.println("\n"
 				+ " _    _  _____  _      _____  _____ ___  ___ _____   _____  _____ \n"
 				+ "| |  | ||  ___|| |    /  __ \\|  _  ||  \\/  ||  ___| |_   _||  _  |\n"
@@ -28,6 +66,7 @@ public class SingMain extends Thread{
 				+ "                                                                                                            \n"
 				+ "                                                                                                            \n"
 				+ "");
+		int ch;
 		while(true) {
 			try {
 				do {
@@ -44,32 +83,13 @@ public class SingMain extends Thread{
 					
 				}while(ch<1);
 				switch(ch) {
-				case 1: MemberMain.main(args); break;
-				case 2: SeatMain.main(args); break;
-				case 3: MenuMain.main(args); break;
+				case 1: MemberMain.main(null); break;
+				case 2: SeatMain.main(null); break;
+				case 3:
+					MenuMain.main(null); 
+					break;
 				case 4: 
-					System.out.println("코인노래방 서비스를 종료합니다.");
-					int cnt = 0;
-					try {
-						sleep(100);
-					} catch (Exception e) {
-						// TODO: handle exception
-					}
-					while(cnt<1) {
-						String[] bye = {"∧,,∧"
-								, "( 'ω' )つ 　다음에"
-								, "（m9 ＼ 　　   또 "
-								, "　 ＼　 ＼ 　　만나요!"
-								, "　 　 ) ) ＼"
-								, "　 ／／ ＼ ＼"
-								, "　 (＿） 　 (＿)"
-								, ""};
-						for(int i =0; i<bye.length; i++) {
-							System.out.println(bye[i]);
-							sleep(150);
-						} cnt++;
-						sleep(800);
-					}
+					si.start();	
 					break;
 				default:
 					System.out.println("다시 골라주세요!");
@@ -79,14 +99,11 @@ public class SingMain extends Thread{
 			} catch (Exception e) {
 				System.out.println(e.toString());
 			}
-			
 			break;
-			
-		}
-		
+	}
 		
 	}
-
+	
 }
 
 
