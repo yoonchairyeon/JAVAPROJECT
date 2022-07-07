@@ -38,6 +38,6 @@
 > 4) 종료
 
 ## 참여 멤버
-<bn> 윤채련 (https://github.com/yoonchairyeon) : 1,3,4번 구현 <\bn>
-<bn> 심민정 : 1번 구현 <\bn>
+<bn> 윤채련 (https://github.com/yoonchairyeon) : 1,3,4번 구현 </bn>
+<bn> 심민정 : 1번 구현 </bn>
 <bn> 정성경 : 2번 구현 </bn>
