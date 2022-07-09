@@ -40,4 +40,4 @@
 ## 참여 멤버
 <br> 윤채련 (https://github.com/yoonchairyeon) : 1,3,4번 구현 </br>
 <br> 심민정 : 1번 구현 </br>
-<br> 정성경 : 2번 구현 </br>
+<br> 정성경 (https://github.com/elbibJeong) : 2번 구현 </br>
